@@ -1,3 +1,9 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 body {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 400; /* Adjust to match the weight you'd like to use */
@@ -11,7 +17,7 @@ header {
     display: flex;
     align-items:center; /* Vertically align items */
     justify-content:space-between; /* Push items to edges of the header */
-    width: 100vw; /* Full screen width */
+    width: 100%; /* Full screen width */
     height: 90vh; /* Full screen height */
     box-sizing: border-box; /* Include padding in width/height */
     background-color: #f0f0f0; /* Light background color */
@@ -38,8 +44,8 @@ header p {
 
 header .profile-image {
     align-self: self-end;
-    max-width: 50%; /* Scale the image to fit */
-    height: auto; /* Maintain aspect ratio */
+    max-width: auto; /* Scale the image to fit */
+    height: 95%; /* Maintain aspect ratio */
 }
 
 nav {
@@ -67,12 +73,16 @@ nav a:hover {
 }
 
 #about {
-    background-color: rgb(0, 0, 0);
-    padding-top: 25px;
-    align-items:center; /* Vertically align items */
-    width: 100vw; /* Full screen width */
-    height: 75vh; /* Full screen height */
+    scroll-margin-top: 6vh;
+    background-color: #000;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 45vh;
 }
+
 
 #about #nodiv {
     display: block;
@@ -87,7 +97,7 @@ nav a:hover {
     justify-content:space-between; /* Push items to edges of the header */
 }
 
-#abourt div div {
+#about div div {
     display:block;
     align-items:center; /* Vertically align items */
     justify-content:space-between; /* Push items to edges of the header */
@@ -128,13 +138,13 @@ nav a:hover {
     align-items:start;
     justify-content: center;
     min-height: 25vh;
-    padding-bottom: 200px;
+    padding-bottom: 150px;
 }
 
 /* Education items - Horizontal layout */
 .education-items {
     position: absolute;
-    bottom: 10%; /* Adjust position above the bottom */
+    bottom: 25%; /* Adjust position above the bottom */
     z-index: 1;
     display: flex;
     flex-direction: column; /* Arrange items vertically */
@@ -182,7 +192,7 @@ nav a:hover {
 }
 
 .skills-grid {
-    margin-top: 35vh;
+    margin-top: 9vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
@@ -216,68 +226,83 @@ nav a:hover {
     color: #555;
 }
 
+/* Projects Section */
+#projects {
+    position: relative;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden; /* prevent text from overflowing */
+}
 
-/* Backdrop text styling */
-.backdrop-text {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 600; /* Use a weight available in the font */
-    position: absolute;
-    top: 13%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Backdrop text (static background) */
+#projects .backdrop-text {
+    position: absolute; /* stays fixed relative to the section */
+    top: 0;           /* vertical placement */
+    left: 50%;          /* centered horizontally */
+    transform: translateX(-50%);
     font-size: 10rem;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.1); /* Lightly visible text */
-    z-index: 0; /* Place it behind the projects */
+    color: rgba(255, 255, 255, 0.08);
     white-space: nowrap;
+    z-index: 0; /* behind project cards */
+    pointer-events: none;
 }
 
-/* Projects container styling */
+/* Horizontal scroll container */
 .projects {
-    display: flex;
-    gap: 20px; /* Space between projects */
-    overflow-x: auto; /* Horizontal scroll */
-    padding: 20px;
-    z-index: 1; /* Place it above the backdrop text */
     position: relative;
-    top: 20%;
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto; /* enable horizontal scroll */
+    padding: 10rem 5vw 2rem; /* add top padding so cards sit below backdrop */
+    z-index: 1; /* above backdrop text */
+    scroll-behavior: smooth;
 }
 
-/* Individual project card styling */
+/* Individual project cards */
 .project {
-    flex: 0 0 300px; /* Fixed width for each card */
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    flex: 0 0 350px;
+    background: #fff;
+    color: #000;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project:hover {
-    transform: scale(1.005); /* Slight zoom on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
-/* Ensure the section takes up full width */
-#projects {
-    position: relative; 
-    background-color: #000000; 
-    overflow: hidden; 
-    padding: 50px 0;
-    position: relative;
-    overflow: hidden;
-    width: 100vw; /* Full screen width */
-    height: 100vh;
+/* Screenshot gallery inside a project */
+.screenshot-gallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 5px;
 }
 
-/* Smooth scrolling for horizontal scroll */
-.projects::-webkit-scrollbar {
+.screenshot-gallery img {
+    border-radius: 6px;
+    flex-shrink: 0;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Optional: scrollbar styling */
+.projects::-webkit-scrollbar,
+.screenshot-gallery::-webkit-scrollbar {
     height: 8px;
 }
-
-.projects::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
+.projects::-webkit-scrollbar-thumb,
+.screenshot-gallery::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
 
