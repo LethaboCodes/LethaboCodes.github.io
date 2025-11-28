@@ -3,10 +3,9 @@ html, body {
   overflow-x: hidden;
 }
 
-
 body {
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 400; /* Adjust to match the weight you'd like to use */
+    font-weight: 400;
     margin: 0;
     padding: 0;
     line-height: 1.5;
@@ -15,57 +14,61 @@ body {
 
 header {
     display: flex;
-    align-items:center; /* Vertically align items */
-    justify-content:space-between; /* Push items to edges of the header */
-    width: 100%; /* Full screen width */
-    height: 90vh; /* Full screen height */
-    box-sizing: border-box; /* Include padding in width/height */
-    background-color: #f0f0f0; /* Light background color */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 90vh;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    padding: 0 2rem;
 }
 
 header h1 {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 600; /* Use a weight available in the font */
-    font-size: 13vw; /* Large title font size */
+    font-weight: 600;
+    font-size: 13vw;
     margin: 0;
-    color: #000000; /* Dark text color */
+    color: #000000;
     margin-left: 10px;
     line-height: 1;
 }
 
 header p {
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 400; /* Use a weight available in the font */
-    font-size: 3vw; /* Subtitle font size */
+    font-weight: 400;
+    font-size: 3vw;
     margin: 0;
-    color: #333; /* Gray text color */
+    color: #333;
     margin-left: 25px;
 }
 
 header .profile-image {
     align-self: self-end;
-    max-width: auto; /* Scale the image to fit */
-    height: 95%; /* Maintain aspect ratio */
+    max-width: auto;
+    height: 95%;
+    object-fit: contain;
 }
 
 nav {
     position: sticky;
-    top: 0; /* Stick to the top of the page */
-    z-index: 1000; /* Ensure it stays above other elements */
+    top: 0;
+    z-index: 1000;
     background-color: #000000;
     display: flex;
-    align-items:center; /* Vertically align items */
-    justify-content:space-between; /* Push items to edges of the header */
+    align-items: center;
+    justify-content: space-between;
     text-align: center;
-    height: 6vh; /* Full screen height */
-    padding-left: 10vw;
-    padding-right: 10vw;
+    min-height: 6vh;
+    padding: 0.5rem 10vw;
+    flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
     color: #ffffff;
     margin: 0 1rem;
+    font-size: 1rem;
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -75,46 +78,62 @@ nav a:hover {
 #about {
     scroll-margin-top: 6vh;
     background-color: #000;
-    padding: 10px 0;
+    padding: 3rem 2rem;
+    padding-bottom: 0%;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     min-height: 45vh;
+    box-sizing: border-box;
 }
-
 
 #about #nodiv {
-    display: block;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-#about div {
     display: flex;
-    align-items:center; /* Vertically align items */
-    justify-content:space-between; /* Push items to edges of the header */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: auto;
+    gap: 0.5rem;
 }
 
-#about div div {
-    display:block;
-    align-items:center; /* Vertically align items */
-    justify-content:space-between; /* Push items to edges of the header */
+#about .about-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+}
+
+#about .about-row--reverse {
+    flex-direction: row-reverse;
+}
+
+#about .about-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+}
+
+#about .about-row p {
+    flex: 1;
 }
 
 #about p {
     color: #ffffff;
     padding: 20px;
+    font-size: 1rem;
+    max-width: 100%;
 }
 
 #about h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 100; /* Use a weight available in the font */
+    font-weight: 100;
     margin-top: 0;
-    padding-top: 1rem;
     padding: 1rem;
-    font-size:  3vw;
+    font-size: 3vw;
     color: #ffffff;
     line-height: 1;
     margin-bottom: 0;
@@ -122,45 +141,42 @@ nav a:hover {
 
 #about #who {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 400; /* Use a weight available in the font */
+    font-weight: 400;
     padding-top: 0;
     font-size: 14vw;
 }
 
-/* Education Section */
 #education {
     position: relative;
     background-color: #000000;
     color: #ffffff;
-    padding: 0;
+    padding: 4rem 2rem;
     overflow: hidden;
     display: flex;
-    align-items:start;
+    align-items: start;
     justify-content: center;
     min-height: 25vh;
     padding-bottom: 150px;
 }
 
-/* Education items - Horizontal layout */
 .education-items {
     position: absolute;
-    bottom: 25%; /* Adjust position above the bottom */
+    bottom: 25%;
     z-index: 1;
     display: flex;
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center; /* Center items horizontally */
-    gap: 1rem; /* Space between each item */
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     text-align: center;
+    padding: 0 1rem;
 }
 
-/* Styling for the individual education items */
 .education-items p {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: #ffffff;
 }
 
-/* Backdrop text */
 #education .backdrop-text {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 600;
@@ -168,24 +184,30 @@ nav a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 12rem;
+    font-size: clamp(4rem, 15vw, 12rem);
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.1); /* Very light text color */
+    color: rgba(255, 255, 255, 0.1);
     white-space: nowrap;
     pointer-events: none;
 }
 
+#skills {
+    background-color: rgb(0, 0, 0);
+    padding: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
 
 #skills #backdrop-text {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 600; /* Use a weight available in the font */
+    font-weight: 600;
     position: absolute;
     top: 7%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 10rem;
+    font-size: clamp(3rem, 12vw, 10rem);
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.1); /* Soft transparent white */
+    color: rgba(255, 255, 255, 0.1);
     white-space: nowrap;
     z-index: 1;
     pointer-events: none;
@@ -198,7 +220,7 @@ nav a:hover {
     gap: 1.5rem;
     padding: 1rem;
     position: relative;
-    z-index: 2; /* Above backdrop */
+    z-index: 2;
 }
 
 .skill {
@@ -226,40 +248,36 @@ nav a:hover {
     color: #555;
 }
 
-/* Projects Section */
 #projects {
     position: relative;
     background-color: #000;
     color: #fff;
-    overflow: hidden; /* prevent text from overflowing */
+    overflow: hidden;
 }
 
-/* Backdrop text (static background) */
 #projects .backdrop-text {
-    position: absolute; /* stays fixed relative to the section */
-    top: 0;           /* vertical placement */
-    left: 50%;          /* centered horizontally */
+    position: absolute;
+    top: 0;
+    left: 50%;
     transform: translateX(-50%);
-    font-size: 10rem;
+    font-size: clamp(3rem, 12vw, 10rem);
     font-weight: bold;
     color: rgba(255, 255, 255, 0.08);
     white-space: nowrap;
-    z-index: 0; /* behind project cards */
+    z-index: 0;
     pointer-events: none;
 }
 
-/* Horizontal scroll container */
 .projects {
     position: relative;
     display: flex;
     gap: 2rem;
-    overflow-x: auto; /* enable horizontal scroll */
-    padding: 10rem 5vw 2rem; /* add top padding so cards sit below backdrop */
-    z-index: 1; /* above backdrop text */
+    overflow-x: auto;
+    padding: 10rem 5vw 2rem;
+    z-index: 1;
     scroll-behavior: smooth;
 }
 
-/* Individual project cards */
 .project {
     flex: 0 0 350px;
     background: #fff;
@@ -279,7 +297,6 @@ nav a:hover {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
-/* Screenshot gallery inside a project */
 .screenshot-gallery {
     display: flex;
     gap: 10px;
@@ -295,74 +312,71 @@ nav a:hover {
     object-fit: cover;
 }
 
-/* Optional: scrollbar styling */
 .projects::-webkit-scrollbar,
 .screenshot-gallery::-webkit-scrollbar {
     height: 8px;
 }
+
 .projects::-webkit-scrollbar-thumb,
 .screenshot-gallery::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
 
-
-/* Contact Section */
 #contact {
     position: relative;
     background-color: #000000;
     color: #ffffff;
-    padding: 0; /* Vertical padding for spacing */
-    overflow: hidden; /* Hide overflow from large backdrop text */
+    padding: 4rem 2rem;
+    overflow: hidden;
     display: flex;
-    align-items:end;
-    justify-content: center;
-    min-height: 30vh; /* Full viewport height */
-}
-
-/* Contact items - Horizontal layout */
-.contact-items {
-    top: 80%;
-    position: absolute; /* To layer over the backdrop text */
     align-items: end;
-    z-index: 1; /* Ensure it's above the backdrop text */
-    display: flex;
-    flex-direction: row; /* Arrange items horizontally */
-    align-items: center; /* Center items vertically */
-    gap: 8vw; /* Add space between items */
+    justify-content: center;
+    min-height: 30vh;
 }
 
-/* Styling for the individual contact items */
+.contact-items {
+    position: absolute;
+    bottom: 20%;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
 .contact-items p,
 .contact-items a {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     color: #ffffff;
     text-decoration: none;
 }
 
 .contact-items a:hover {
-    text-decoration: underline; /* Add underline effect on hover */
+    text-decoration: underline;
 }
 
-/* Backdrop text */
 #contact .backdrop-text {
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 600; /* Use a weight available in the font */
+    font-weight: 600;
     position: absolute;
     top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 12rem;
+    font-size: clamp(4rem, 15vw, 12rem);
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.1); /* Very light text color */
+    color: rgba(255, 255, 255, 0.1);
     white-space: nowrap;
-    pointer-events: none; /* Ensure it doesn’t interfere with interaction */
+    pointer-events: none;
 }
 
 footer {
     font-size: 1em;
-    text-align:center;
+    text-align: center;
     background: #000000;
     color: white;
     margin: 0;
@@ -371,4 +385,225 @@ footer {
 footer p {
     margin: 0;
     padding: 10px;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablets and smaller laptops (768px - 1024px) */
+@media (max-width: 1024px) {
+    header {
+        padding: 0 1rem;
+    }
+
+    nav {
+        padding: 0.5rem 5vw;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .projects {
+        padding: 8rem 3vw 2rem;
+    }
+
+    .project {
+        flex: 0 0 300px;
+    }
+}
+
+/* Mobile devices (up to 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        min-height: 70vh;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 18vw;
+        margin-left: 0;
+    }
+
+    header p {
+        font-size: 5vw;
+        margin-left: 0;
+    }
+
+    header .profile-image {
+        max-width: 80%;
+        height: auto;
+        margin-top: 2rem;
+    }
+
+    nav {
+        padding: 0.5rem 2vw;
+        justify-content: center;
+        gap: 0.3rem;
+    }
+
+    nav a {
+        margin: 0.3rem;
+        font-size: 0.75rem;
+    }
+
+    #about {
+        padding: 2rem 1rem;
+        align-items: stretch;
+    }
+
+    #about .about-row {
+        display: contents;
+    }
+
+    #about .about-heading {
+        align-items: center;
+        text-align: center;
+        order: 0;
+    }
+
+    #about .about-row p {
+        order: 1;
+        text-align: justify;
+    }
+
+    #about h2 {
+        font-size: 6vw;
+    }
+
+    #about #who {
+        font-size: 20vw;
+        text-align: center;
+    }
+
+    #about p {
+        padding: 10px;
+        text-align: justify;
+    }
+
+    #education {
+        padding: 3rem 1rem 100px;
+    }
+
+    .education-items {
+        bottom: 15%;
+    }
+
+    #skills {
+        padding: 2rem 0.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        margin-top: 6vh;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+
+    #projects .backdrop-text {
+        font-size: 3rem;
+    }
+
+    .projects {
+        padding: 6rem 2vw 2rem;
+        gap: 1rem;
+    }
+
+    .project {
+        flex: 0 0 280px;
+    }
+
+    .project iframe {
+        height: 300px !important;
+    }
+
+    .screenshot-gallery img {
+        height: 150px;
+    }
+
+    #contact {
+        padding: 3rem 1rem;
+        min-height: 35vh;
+    }
+
+    .contact-items {
+        flex-direction: column;
+        gap: 1.5rem;
+        bottom: 15%;
+    }
+
+    .contact-items p,
+    .contact-items a {
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile devices (up to 480px) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 22vw;
+    }
+
+    header p {
+        font-size: 6vw;
+    }
+
+    nav {
+        padding: 0.5rem 1vw;
+    }
+
+    nav a {
+        margin: 0.2rem;
+        font-size: 0.7rem;
+    }
+
+    #about #who {
+        font-size: 25vw;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project {
+        flex: 0 0 260px;
+        padding: 0.75rem;
+    }
+
+    .project h3 {
+        font-size: 1.1rem;
+    }
+
+    .project p {
+        font-size: 0.9rem;
+    }
+
+    .project iframe {
+        height: 250px !important;
+    }
+
+    .screenshot-gallery img {
+        height: 120px;
+    }
+}
+
+/* Extra small devices (up to 360px) */
+@media (max-width: 360px) {
+    nav a {
+        font-size: 0.65rem;
+        margin: 0.1rem;
+    }
+
+    .project {
+        flex: 0 0 240px;
+    }
 }
