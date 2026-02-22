@@ -113,11 +113,20 @@ nav a:hover {
     justify-content: center;
     width: auto;
     gap: 0.5rem;
+    position: relative;
+    align-self: stretch;
+    padding-top: 1rem;
+}
+
+#about #nodiv > h2:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #about .about-row {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     gap: 2rem;
@@ -131,7 +140,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     flex: 0 0 auto;
 }
 
@@ -588,6 +597,17 @@ footer p {
 
     #about .about-row {
         display: contents;
+    }
+
+    #about #nodiv {
+        position: static;
+        align-self: auto;
+        justify-content: flex-start;
+        padding-top: 0;
+    }
+
+    #about #nodiv > h2:first-child {
+        position: static;
     }
 
     #about .about-heading {
