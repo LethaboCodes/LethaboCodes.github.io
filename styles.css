@@ -522,7 +522,7 @@ footer p {
 }
 
 /* Tablet and desktop hero behavior (1000px and up) */
-@media (min-width:1000px) {
+@media (min-width:769px) {
 
     header .profile-image {
         right: 0;
