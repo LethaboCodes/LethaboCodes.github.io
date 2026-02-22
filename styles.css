@@ -68,9 +68,12 @@ header .profile-image {
 }
 
 nav {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
     background-color: #000000;
     display: flex;
     align-items: center;
@@ -79,6 +82,18 @@ nav {
     min-height: 6vh;
     padding: 0.5rem 10vw;
     flex-wrap: wrap;
+}
+
+#nav-spacer {
+    height: 0;
+}
+
+nav.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 nav a {
@@ -497,8 +512,8 @@ footer p {
     }
 }
 
-/* Tablet and desktop hero behavior (1300px and up) */
-@media (min-width:1300px) {
+/* Tablet and desktop hero behavior (1000px and up) */
+@media (min-width:1000px) {
 
     header .profile-image {
         right: 0;
