@@ -3,7 +3,7 @@
 <head>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Lethabo Simon Letsoalo | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preload" as="image" href="profile.png">
@@ -25,7 +25,7 @@
             <h1>Lethabo Letsoalo</h1>
             <p>{Software Engineer}</p>
         </div>
-        <img src="profile.png" alt="Lethabo Letsaolo" class="profile-image" loading="eager" fetchpriority="high">
+        <img src="profile.png" alt="Lethabo Letsaolo" class="profile-image" loading="eager" fetchpriority="high" draggable="false">
     </header>
 
     <div id="nav-spacer" aria-hidden="true"></div>
@@ -261,6 +261,7 @@
         (function () {
             const nav = document.querySelector('nav');
             const spacer = document.getElementById('nav-spacer');
+            const profileImage = document.querySelector('.profile-image');
             if (!nav || !spacer) return;
 
             let navStart = 0;
@@ -297,6 +298,17 @@
             window.addEventListener('scroll', updateStickyState, { passive: true });
             window.addEventListener('resize', recalcStart);
             window.addEventListener('load', recalcStart);
+
+            if (profileImage) {
+                profileImage.addEventListener('contextmenu', function (event) {
+                    event.preventDefault();
+                });
+
+                profileImage.addEventListener('dragstart', function (event) {
+                    event.preventDefault();
+                });
+            }
+
             recalcStart();
         })();
     </script>
